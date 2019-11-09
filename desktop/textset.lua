@@ -23,7 +23,7 @@ local textset = { mt = {} }
 -----------------------------------------------------------------------------------------------------------------------
 local function default_style()
 	local style = {
-		font  = "Sans 12",
+		font  = "Helvetica Neue 10",
 		spacing = 0,
 		color = { gray = "#525252" }
 	}

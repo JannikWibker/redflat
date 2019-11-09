@@ -68,9 +68,9 @@ local function default_style()
 		line_height     = 26,
 		bar_width       = 8, -- progress bar height
 		volume_width    = 50,
-		titlefont       = "Sans 12",
-		timefont        = "Sans 12",
-		artistfont      = "Sans 12",
+		titlefont       = "Helvetica Neue 10",
+		timefont        = "Helvetica Neue 10",
+		artistfont      = "Helvetica Neue 10",
 		border_width    = 2,
 		icon            = {
 			cover   = redutil.base.placeholder(),

@@ -27,7 +27,7 @@ local function default_style()
 		draw      = "by_left",
 		separator = '%s',
 		color     = "#404040",
-		font      = { font = "Sans", size = 20, face = 0, slant = 0 }
+		font      = { font = "Helvetica Neue", size = 20, face = 0, slant = 0 }
 	}
 
 	return redutil.table.merge(style, redutil.table.check(beautiful, "desktop.common.textbox") or {})
