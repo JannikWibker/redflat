@@ -63,7 +63,8 @@ local function get_state(t)
 
 	state.active = t.selected
 	state.occupied = client_count > 0 and not (client_count == 1 and state.focus)
-	state.text = string.upper(t.name)
+	-- state.text = string.upper(t.name)
+	state.text = t.name
 	state.layout = awful.tag.getproperty(t, "layout")
 
 	return state

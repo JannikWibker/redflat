@@ -24,7 +24,7 @@ local notify = { last = {} }
 -----------------------------------------------------------------------------------------------------------------------
 local function default_style()
 	local style = {
-		geometry        = { width = 480, height = 100 },
+		geometry        = { width = 480, height = 48 }, -- height = 100
 		screen_gap      = 0,
 		set_position    = nil,
 		border_margin   = { 20, 20, 20, 20 },
@@ -36,6 +36,7 @@ local function default_style()
 		icon            = nil,
 		progressbar     = {},
 		color           = { border = "#575757", icon = "#aaaaaa", wibox = "#202020" },
+		icon_size				= 24,
 		shape           = nil
 	}
 	return redutil.table.merge(style, redutil.table.check(beautiful, "float.notify") or {})

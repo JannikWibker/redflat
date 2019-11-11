@@ -26,7 +26,7 @@ local hasitem = awful.util.table.hasitem
 local map = { data = setmetatable({}, { __mode = "k" }), scheme = setmetatable({}, { __mode = "k" }), keys = {} }
 map.name = "usermap"
 map.notification = true
-map.notification_style = {}
+map.notification_style = { icon_size = 48 }
 
 local hitimer
 map.hilight_timeout = 0.2

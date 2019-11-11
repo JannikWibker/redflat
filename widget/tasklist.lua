@@ -48,6 +48,12 @@ local last = {
 	screen_clients = {}
 }
 
+-- Utility function
+-----------------------------------------------------------------------------------------------------------------------
+function firstToUpper(str)
+	return (str:gsub("^%l", string.upper))
+end
+
 -- Generate default theme vars
 -----------------------------------------------------------------------------------------------------------------------
 local function default_style()
@@ -128,7 +134,8 @@ local function get_state(c_group, style)
 	end
 
 	local class = c_group[1].class or "Undefined"
-	state.text = names[class] or string.upper(string.sub(class, 1, chars))
+	state.text = names[class] or firstToUpper(string.sub(class, 1, chars))
+	-- state.text = names[class] or string.sub(class, 1, chars)
 	state.num = #c_group
 	state.icon = style.custom_icon and style.icons[style.iconnames[class] or string.lower(class)]
 
