@@ -18,7 +18,9 @@ local setmetatable = setmetatable
 local awful = require("awful")
 local beautiful = require("beautiful")
 local gears = require("gears")
+local _dbus = dbus; dbus = nil
 local naughty = require("naughty")
+dbus = _dbus
 
 local tooltip = require("redflat.float.tooltip")
 local audio = require("redflat.gauge.audio.blue")

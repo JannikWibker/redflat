@@ -16,7 +16,9 @@ local unpack = unpack or table.unpack
 local awful = require("awful")
 local beautiful = require("beautiful")
 local wibox = require("wibox")
+local _dbus = dbus; dbus = nil
 local naughty = require("naughty")
+dbus = _dbus
 
 local redutil = require("redflat.util")
 local decoration = require("redflat.float.decoration")

@@ -13,7 +13,7 @@ local tonumber = tonumber
 local awful = require("awful")
 local beautiful = require("beautiful")
 local timer = require("gears.timer")
-local naughty = require("naughty")
+-- local naughty = require("naughty")
 
 local rednotify = require("redflat.float.notify")
 local tooltip = require("redflat.float.tooltip")
@@ -158,27 +158,27 @@ end
 -----------------------------------------------------------------------------------------------------------------------
 function mail.new(style)
 
-	if not mail.style then
-		naughty.notify({ title = "Warning!", text = "Mail widget doesn't configured" })
-		mail:init({})
-	end
+-- 	if not mail.style then
+-- 		naughty.notify({ title = "Warning!", text = "Mail widget doesn't configured" })
+-- 		mail:init({})
+-- 	end
 
-	-- Initialize vars
-	--------------------------------------------------------------------------------
-	style = redutil.table.merge(mail.style, style or {})
+-- 	-- Initialize vars
+-- 	--------------------------------------------------------------------------------
+-- 	style = redutil.table.merge(mail.style, style or {})
 
-	-- Create widget
-	--------------------------------------------------------------------------------
-	local widg = svgbox(style.icon)
-	widg:set_color(style.color.icon)
-	table.insert(mail.objects, widg)
+-- 	-- Create widget
+-- 	--------------------------------------------------------------------------------
+-- 	local widg = svgbox(style.icon)
+-- 	widg:set_color(style.color.icon)
+-- 	table.insert(mail.objects, widg)
 
-	-- Set tooltip
-	--------------------------------------------------------------------------------
-	mail.tp:add_to_object(widg)
+-- 	-- Set tooltip
+-- 	--------------------------------------------------------------------------------
+-- 	mail.tp:add_to_object(widg)
 
-	--------------------------------------------------------------------------------
-	return widg
+-- 	--------------------------------------------------------------------------------
+-- 	return widg
 end
 
 -- Update mail info for every widget
