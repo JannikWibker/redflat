@@ -291,18 +291,20 @@ function dfparser.menu(style)
 
 	style = redutil.table.merge(default_style(), style or {})
 
+	local theme_path = style.base_path
+
 	-- Categories list
 	--------------------------------------------------------------------------------
 	local categories = {
-		{ app_type = "AudioVideo",  name = "Multimedia",   icon_name = "applications-multimedia" },
-		{ app_type = "Development", name = "Development",  icon_name = "applications-development" },
-		{ app_type = "Education",   name = "Education",    icon_name = "applications-science" },
+		{ app_type = "AudioVideo",  name = "Multimedia",   icon_name = theme_path .. "/applications/multimedia.svg" },
+		{ app_type = "Development", name = "Development",  icon_name = theme_path .. "/applications/development.svg" },
+		{ app_type = "Education",   name = "Education",    icon_name = theme_path .. "/applications/education.svg" },
 		{ app_type = "Game",        name = "Games",        icon_name = "applications-games" },
-		{ app_type = "Graphics",    name = "Graphics",     icon_name = "applications-graphics" },
-		{ app_type = "Office",      name = "Office",       icon_name = "applications-office" },
-		{ app_type = "Network",     name = "Internet",     icon_name = "applications-internet" },
+		{ app_type = "Graphics",    name = "Graphics",     icon_name = theme_path .. "/applications/graphics.svg" },
+		{ app_type = "Office",      name = "Office",       icon_name = theme_path .. "/applications/office.svg" },
+		{ app_type = "Network",     name = "Internet",     icon_name = theme_path .. "/applications/internet.svg" },
 		{ app_type = "Settings",    name = "Settings",     icon_name = "applications-utilities" },
-		{ app_type = "System",      name = "System Tools", icon_name = "applications-system" },
+		{ app_type = "System",      name = "System Tools", icon_name = theme_path .. "/applications/tools.svg" },
 		{ app_type = "Utility",     name = "Accessories",  icon_name = "applications-accessories" }
 	}
 
