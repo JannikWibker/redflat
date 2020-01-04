@@ -70,20 +70,20 @@ control.keys.control = {
 		{ description = "Decrease window size", group = "Window control" }
 	},
 	{
-		{ "Mod4" }, "l", function() control:move("right") end,
-		{ description = "Move window to right", group = "Window control" }
-	},
-	{
-		{ "Mod4" }, "j", function() control:move("left") end,
+		{ "Mod4" }, "h", function() control:move("left") end,
 		{ description = "Move window to left", group = "Window control" }
 	},
 	{
-		{ "Mod4" }, "k", function() control:move("bottom") end,
+		{ "Mod4" }, "j", function() control:move("bottom") end,
 		{ description = "Move window to bottom", group = "Window control" }
 	},
 	{
-		{ "Mod4" }, "i", function() control:move("top") end,
+		{ "Mod4" }, "k", function() control:move("top") end,
 		{ description = "Move window to top", group = "Window control" }
+	},
+	{
+		{ "Mod4" }, "l", function() control:move("right") end,
+		{ description = "Move window to right", group = "Window control" }
 	},
 	{
 		{ "Mod4" }, "n", function() control:switch_resize_mode() end,
