@@ -61,6 +61,14 @@ appswitcher.keys.action = {
 		{ "Mod4" }, "F1", function() redtip:show() end,
 		{ description = "Show hotkeys helper", group = "Action" }
 	},
+	{
+		{ env.mod }, "q", function() appswitcher:close_current() end,
+		{ description = "Quit application", group = "Action" }
+	},
+	{
+		{ env.mod, "Shift" }, "q", function() appswitcher:close_current() end,
+		{} -- hidden key
+	},
 }
 
 appswitcher.keys.all = awful.util.table.join(appswitcher.keys.move, appswitcher.keys.action)
@@ -423,6 +431,14 @@ function appswitcher:hide(is_empty_call)
 	awful.keygrabber.stop(self.keygrabber)
 
 	if not is_empty_call then focus_and_raise(self.clients_list[self.index]) end
+end
+
+-- Close currently selected application
+-----------------------------------------------------------------------------------------------------------------------
+function appswitcher:close_current()
+	local application = self.clients_list[self.index]
+	self:switch({ reverse = true })
+	application:kill()
 end
 
 -- Toggle appswitcher widget
