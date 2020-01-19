@@ -13,7 +13,7 @@ local function worker(args)
     dark = {
       bg = '#000000',
       fg = '#ffffff',
-      focus_date_bg = '#ff00aa',
+      focus_date_bg = beautiful.color.main,
       focus_date_fg = '#ffffff',
       weekend_day_bg = '#111111',
       weekday_fg = '#ffffff',

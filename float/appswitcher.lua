@@ -88,11 +88,11 @@ local function default_style()
 		border_width    = 2,
 		parser          = {},
 		update_timeout  = 1,
-		min_icon_number = 4,
+		min_icon_number = 2,
 		keytip          = { geometry = { width = 400 }, exit = false },
-		title_font      = "Helvetica Neue 10",
+		title_font      = "Menlo 10",
 		hotkeys         = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" },
-		font            = { font = "Helvetica Neue", size = 16, face = 0, slant = 0 },
+		font            = { font = "Menlo", size = 16, face = 0, slant = 0 },
 		color           = { border = "#575757", text = "#aaaaaa", main = "#b1222b", preview_bg = "#b1222b80",
 		                    wibox  = "#202020", icon = "#a0a0a0", bg   = "#161616", gray = "#575757" },
 		shape           = nil
@@ -311,7 +311,7 @@ function appswitcher:init()
 			if i > 1 then cr:translate(style.preview_gap + psize.width, 0) end
 
 			-- draw background for preview
-			cr:set_source(gears.color(i == self.index and style.color.main or style.color.preview_bg))
+			cr:set_source(gears.color(i == self.index and style.color.main or style.color.wibox)) -- was style.color.preview_bg (wibox)
 			cr:rectangle(0, 0, psize.width, psize.height)
 			cr:fill()
 
@@ -350,7 +350,7 @@ function appswitcher:init()
 	local vertical_layout = wibox.layout.fixed.vertical()
 	local widget_bg = wibox.container.background(
 		wibox.container.margin(self.widget, unpack(style.preview_margin)),
-		style.color.bg
+		style.color.wibox -- was style.color.bg
 	)
 	vertical_layout:add(title_layout)
 	vertical_layout:add(widget_bg)
