@@ -62,11 +62,11 @@ appswitcher.keys.action = {
 		{ description = "Show hotkeys helper", group = "Action" }
 	},
 	{
-		{ env.mod }, "q", function() appswitcher:close_current() end,
+		{ "Mod4" }, "q", function() appswitcher:close_current() end,
 		{ description = "Quit application", group = "Action" }
 	},
 	{
-		{ env.mod, "Shift" }, "q", function() appswitcher:close_current() end,
+		{ "Mod4", "Shift" }, "q", function() appswitcher:close_current() end,
 		{} -- hidden key
 	},
 }
