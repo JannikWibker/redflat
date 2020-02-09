@@ -43,7 +43,7 @@ local function default_style()
 		separator     = {},
 		heights       = { key = 20, title = 24 },
 		color         = { border = "#575757", text = "#aaaaaa", main = "#b1222b", wibox = "#202020",
-		                  gray = "#575757" },
+		                  gray = "#575757", title = "#5e81ac" },
 		shape         = nil
 	}
 
@@ -141,8 +141,7 @@ local function build_tip(pack, style, keypressed)
 
 			-- set group title
 			coltxt[#coltxt + 1] = string.format(
-				'<span font="%s" color="%s">%s</span>',
-				style.titlefont, style.color.gray, name
+				style.titlefont, style.color.title, name
 			)
 			height = height + style.heights.title
 
