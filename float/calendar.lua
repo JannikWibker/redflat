@@ -20,7 +20,19 @@ local function worker(args)
       header_fg = '#ffffff',
       border = '#333333',
       border_radius = 0,
-      font = 'Menlo 10'
+      font = 'Menlo ' .. (args.is_high_dpi and '6' or '10')
+    },
+    light = {
+      bg = '#ffffff',
+      fg = '#000000',
+      focus_date_bg = beautiful.color.main,
+      focus_date_fg = '#ffffff',
+      weekend_day_bg = '#eeeeee',
+      weekday_fg = '#000000',
+      header_fg = '#000000',
+      border = '#dddddd',
+      border_radius = 0,
+      font = 'Menlo ' .. (args.is_high_dpi and '6' or '10')
     }
   }
 
