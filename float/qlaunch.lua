@@ -442,11 +442,11 @@ function qlaunch:set_new_app(key, c)
 	if c then
 		local run_command = redutil.read.output(string.format("tr '\\0' ' ' < /proc/%s/cmdline", c.pid))
 		self.store[key] = { app = c.class:lower(), run = run_command }
-		local note = redutil.table.merge({text = string.format("%s binded with '%s'", c.class, key)}, self.style.notify)
+		local note = redutil.table.merge({text = string.format("%s bound to '%s'", c.class, key)}, self.style.notify)
 		redflat.float.notify:show(note)
 	else
 		self.store[key] = { app = "", run = "" }
-		local note = redutil.table.merge({text = string.format("'%s' key unbinded", key)}, self.style.notify)
+		local note = redutil.table.merge({text = string.format("'%s' key unbound", key)}, self.style.notify)
 		redflat.float.notify:show(note)
 	end
 

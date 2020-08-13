@@ -28,6 +28,10 @@ local rednotify = require("redflat.float.notify")
 local redutil = require("redflat.util")
 
 
+-- volume notification message id (choosen randomly)
+local volume_message_id =math.random(100000) -- kind of arbitrary upper limit
+
+
 -- Initialize tables and vars for module
 -----------------------------------------------------------------------------------------------------------------------
 local pulse = { widgets = {}, mt = {} }
@@ -96,7 +100,7 @@ function pulse:change_volume(args)
 	if args.show_notify then
 		local vol = new_volume / 65536
 		rednotify:show(
-			redutil.table.merge({ value = vol, text = string.format('%.0f', vol*100) .. "%" }, self._style.notify)
+			redutil.table.merge({ value = vol, text = string.format('%.0f', vol*100) .. "%", id = volume_message_id }, self._style.notify)
 		)
 	end
 

@@ -50,7 +50,7 @@ function brightness.info_with_xbacklight()
 	awful.spawn.easy_async(
 		"xbacklight -get",
 		function(output)
-			rednotify:show(redutil.table.merge(
+			rednotify:show(redutil.table.merge( -- TODO: support value / progress bar thing in notify
 				{ value = output / 100, text = string.format('%.0f', output) .. "%" },
 				brightness.style.notify
 			))

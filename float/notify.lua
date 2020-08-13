@@ -25,7 +25,8 @@ local function default_args()
 		icon            = nil,
 		urgency					= nil,
 		appname				  = "awesomewm",
-		hint						= nil
+		hint						= nil,
+		id							= nil,
 	}
 	return redutil.table.merge(args, redutil.table.check(beautiful, "float.notify") or {})
 end
@@ -55,6 +56,9 @@ function notify:show(args)
 	end
 	if all_args.timeout then
 		cmd = cmd .. "--timeout=" .. (all_args.timeout * 1000) .. " "
+	end
+	if  all_args.id then
+		cmd = cmd .. "-r \"" .. all_args.id .. "\" "
 	end
 	if all_args.hint then
 		-- TODO: use an array instead?
