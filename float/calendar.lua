@@ -13,7 +13,7 @@ local function worker(args)
     dark = {
       bg = '#000000',
       fg = '#ffffff',
-      focus_date_bg = beautiful.color.main,
+      focus_date_bg = beautiful.color.main == '#ffffff' and beautiful.color.accent or beautiful.color.main,
       focus_date_fg = '#ffffff',
       weekend_day_bg = '#111111',
       weekday_fg = '#ffffff',
@@ -25,7 +25,7 @@ local function worker(args)
     light = {
       bg = '#ffffff',
       fg = '#000000',
-      focus_date_bg = beautiful.color.main,
+      focus_date_bg = beautiful.color.main == '#ffffff' and beautiful.color.accent or beautiful.color.main,
       focus_date_fg = '#ffffff',
       weekend_day_bg = '#eeeeee',
       weekday_fg = '#000000',

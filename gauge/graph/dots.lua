@@ -27,7 +27,7 @@ local function default_style()
 		row_num      = 3,
 		dot_size     = 5,
 		dot_gap_h    = 5,
-		color        = { main = "#b1222b", gray = "#575757" }
+		color        = { widget_main = "#b1222b", gray = "#575757" }
 	}
 	return redutil.table.merge(style, redutil.table.check(beautiful, "gauge.graph.dots") or {})
 end
@@ -84,7 +84,7 @@ function counter.new(style)
 		for i = 1, style.row_num do
 			for j = 1, self._data.column_num do
 				local cc = (j + (i - 1) * self._data.column_num) <= self._data.count_num
-				           and style.color.main or style.color.gray
+				           and style.color.widget_main or style.color.gray
 				cr:set_source(color(cc))
 
 				cr:rectangle(0, 0, style.dot_size, - style.dot_size)

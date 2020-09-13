@@ -24,7 +24,7 @@ local function default_style()
 	local style = {
 		width = 40,
 		line  = { num = 5, height = 4 },
-		color = { main = "#b1222b", urgent = "#00725b", gray = "#575757" }
+		color = { widget_main = "#b1222b", urgent = "#00725b", gray = "#575757" }
 	}
 	return redutil.table.merge(style, redutil.table.check(beautiful, "gauge.monitor.dash") or {})
 end
@@ -41,7 +41,7 @@ function dashmon.new(style)
 	-- Create custom widget
 	--------------------------------------------------------------------------------
 	local widg = wibox.widget.base.make_widget()
-	widg._data = { color = style.color.main, level = 0, alert = false }
+	widg._data = { color = style.color.widget_main, level = 0, alert = false }
 
 	if style.width then widg:set_forced_width(style.width) end
 
@@ -60,7 +60,7 @@ function dashmon.new(style)
 	function widg:set_alert(alert)
 		if alert ~= self._data.alert then
 			self._data.alert = alert
-			self._data.color = alert and style.color.urgent or style.color.main
+			self._data.color = alert and style.color.urgent or style.color.widget_main
 			self:emit_signal("widget::redraw_needed")
 		end
 	end

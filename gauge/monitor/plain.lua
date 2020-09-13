@@ -28,7 +28,7 @@ local function default_style()
 		label      = "MON",
 		width      = 100,
 		step       = 0.05,
-		color      = { main = "#b1222b", gray = "#575757", icon = "#a0a0a0" }
+		color      = { widget_main = "#b1222b", gray = "#575757", icon = "#a0a0a0" }
 	}
 	return redutil.table.merge(style, redutil.table.check(beautiful, "gauge.monitor.plain") or {})
 end
@@ -71,7 +71,7 @@ function monitor.new(style)
 	function widg:set_alert(alert)
 		if alert ~= self._data.alert then
 			self._data.alert = alert
-			self._data.color = alert and style.color.main or style.color.icon
+			self._data.color = alert and style.color.widget_main or style.color.icon
 			self:emit_signal("widget::redraw_needed")
 		end
 	end
@@ -94,7 +94,7 @@ function monitor.new(style)
 		-- progressbar
 		local wd = { width, width * self._data.level }
 		for i = 1, 2 do
-			cr:set_source(color(i > 1 and style.color.main or style.color.gray))
+			cr:set_source(color(i > 1 and style.color.widget_main or style.color.gray))
 			cr:rectangle(0, style.line.y, wd[i], style.line.height)
 			cr:fill()
 		end

@@ -1,7 +1,7 @@
 -----------------------------------------------------------------------------------------------------------------------
 --                                            RedFlat dashcontrol widget                                             --
 -----------------------------------------------------------------------------------------------------------------------
--- Horizontal progresspar with stairs form
+-- Horizontal progressbar with stairs form
 -----------------------------------------------------------------------------------------------------------------------
 
 -- Grab environment
@@ -24,7 +24,7 @@ local function default_style()
 	local style = {
 		plain = false,
 		bar   = { width = 4, num = 10 },
-		color = { main = "#b1222b", gray = "#404040" }
+		color = { widget_main = "#b1222b", gray = "#404040" }
 	}
 	return redutil.table.merge(style, redutil.table.check(beautiful, "gauge.graph.dash") or {})
 end
@@ -69,7 +69,7 @@ function dashcontrol.new(style)
 		--self._data.cnum = math.ceil(widg._data.value * style.bar.num)
 
 		for i = 1, style.bar.num do
-			cr:set_source(color(i > self._data.cnum and style.color.gray or style.color.main))
+			cr:set_source(color(i > self._data.cnum and style.color.gray or style.color.widget_main))
 			cr:rectangle((i - 1) * wstep, height, style.bar.width,  style.plain and -height or - i * hstep)
 			cr:fill()
 		end

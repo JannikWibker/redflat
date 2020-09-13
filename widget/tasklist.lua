@@ -97,7 +97,7 @@ local function default_style()
 		margin       = { 10, 10, 5, 5 },
 		timeout      = 0.5,
 		sl_highlight = false, -- single line highlight
-		color        = { border = "#575757", text = "#aaaaaa", main = "#b1222b", highlight = "#eeeeee",
+		color        = { border = "#575757", text = "#aaaaaa", tasklist_main = "#b1222b", highlight = "#eeeeee",
 		                 wibox = "#202020", gray = "#575757", urgent = "#32882d" },
 		shape        = nil
 
@@ -234,7 +234,7 @@ local function state_line_construct(state_icons, setup_layout, style)
 		stateboxes[i]:buttons(awful.util.table.join(awful.button({}, 1,
 			function()
 				v.action()
-				stateboxes[i]:set_color(v.indicator(last.client) and style.color.main or style.color.gray)
+				stateboxes[i]:set_color(v.indicator(last.client) and (style.color.tasklist_main or style.color.main) or style.color.gray)
 			end
 		)))
 	end
@@ -346,7 +346,7 @@ local function tasktip_line(style)
 	-- background for client state mark
 	line.field = wibox.container.background(horizontal)
 
-	-- tasktip line metods
+	-- tasktip line methods
 	function line:set_text(text)
 		line.tb:set_markup(text)
 
@@ -362,7 +362,7 @@ local function tasktip_line(style)
 	end
 
 	function line:mark_focused()
-		line.field:set_bg(style.color.main)
+		line.field:set_bg(style.color.tasklist_main or style.color.main)
 		line.field:set_fg(style.color.highlight)
 	end
 
@@ -542,7 +542,7 @@ function redtasklist.winmenu:init(style)
 	-- update function for state icons
 	local function stateboxes_update(c, icons, boxes)
 		for i, v in ipairs(icons) do
-			boxes[i]:set_color(v.indicator(c) and style.color.main or style.color.gray)
+			boxes[i]:set_color(v.indicator(c) and (style.color.tasklist_main or style.color.main) or style.color.gray)
 		end
 	end
 

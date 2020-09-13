@@ -68,7 +68,11 @@ local function default_theme()
 		                 submenu_icon = nil, right_icon = nil, left_icon = nil },
 		shape        = nil
 	}
-	return redutil.table.merge(style, beautiful.menu or {})
+	local merged_style = redutil.table.merge(style, beautiful.menu or {})
+	if merged_style.color.main == "#ffffff" then
+		merged_style.color.highlight = "#222222"
+	end
+	return merged_style
 end
 
 

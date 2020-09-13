@@ -29,7 +29,7 @@ local function default_style()
 		icon    = redutil.base.placeholder(),
 		dmargin = { 10, 0, 0, 0 },
 		width   = 100,
-		color   = { main = "#b1222b", gray = "#575757", icon = "#a0a0a0", urgent = "#32882d" }
+		color   = { widget_main = "#b1222b", gray = "#575757", icon = "#a0a0a0", urgent = "#32882d" }
 	}
 	return redutil.table.merge(style, redutil.table.check(beautiful, "gauge.monitor.double") or {})
 end
@@ -72,7 +72,7 @@ local function pbar(style)
 
 		for i = 1, 2 do
 			for k = 1, style.line.num do
-				cr:set_source(color(k <= self._data.level[i] and style.color.main or style.color.gray))
+				cr:set_source(color(k <= self._data.level[i] and style.color.widget_main or style.color.gray))
 				cr:rectangle(
 					(k - 1) * (wd + style.line.gap), dy + (i - 1) * (style.line.width + style.line.v_gap),
 					wd, style.line.width
