@@ -84,7 +84,11 @@ local function default_style()
 		shape         = nil
 
 	}
-	return redutil.table.merge(style, redutil.table.check(beautiful, "float.top") or {})
+	local merged_style = redutil.table.merge(style, redutil.table.check(beautiful, "float.top") or {})
+	if merged_style.color.main == '#ffffff' then
+		merged_style.color.highlight = '#222222'
+	end
+	return merged_style
 end
 
 -- Support functions

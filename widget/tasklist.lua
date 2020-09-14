@@ -108,8 +108,12 @@ local function default_style()
 		-- color        = { submenu_icon = "#a0a0a0", right_icon = "#a0a0a0", left_icon = "#a0a0a0" }
 		nohide       = true
 	}
+	local merged_style = redutil.table.merge(style, redutil.table.check(beautiful, "widget.tasklist") or {})
+	if merged_style.tasktip.color.tasklist_main == '#ffffff' then
+		merged_style.tasktip.color.highlight = '#222222'
+	end
 
-	return redutil.table.merge(style, redutil.table.check(beautiful, "widget.tasklist") or {})
+	return merged_style
 end
 
 -- Support functions

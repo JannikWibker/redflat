@@ -70,7 +70,7 @@ local function default_theme()
 	}
 	local merged_style = redutil.table.merge(style, beautiful.menu or {})
 	if merged_style.color.main == "#ffffff" then
-		merged_style.color.highlight = "#222222"
+		merged_style.color.highlight = '#222222'
 	end
 	return merged_style
 end
